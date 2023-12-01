@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <div id="idDiv1">
+            <label>Nombre:</label>
+            <input type="text" id="idInput"/>
+        </div>
+        <button type="button" id="idButtonGuard">Guardar</button>
+
+        <script>
+            selectInput = document.getElementById("idInput");
+            selectInput.value = "Juan";
+
+            var newLabel = document.createElement("label");
+            newLabel.innerText = "Debe ingresar nombre";
+            var cont = document.getElementById("idDiv1");
+            cont.appendChild(newLabel);
+            newLabel.style.color = "red";
+            newLabel.style.visibility = "hidden";
+
+            idButtonGuard.onclick = guardar;
+            selectInput.onblur = guardar;
+
+            function guardar() {
+                if (selectInput.value == ""){
+                    newLabel.style.visibility = "visible";
+                }
+                else {
+                    newLabel.style.visibility = "hidden";
+                };
+            };
+
+
+        
+
+        </script>
+    </form>
+</body>
+</html>

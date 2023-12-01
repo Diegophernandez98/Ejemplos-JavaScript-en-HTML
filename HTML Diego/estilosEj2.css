@@ -1,0 +1,13 @@
+p {
+    visibility: hidden;
+}
+p:hover {
+    color: red;
+    font-style: italic;
+    visibility: visible;
+}
+
+label:hover {
+    color: red;
+    font-style: italic;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- crear listas y mostrar las ciudades de la region escogida
+    -->
+    <div>
+        <label>REGIONES</label>
+        <select id="idRegiones">
+            <option value= -1 name="NO">NO SELECCIONADO</option>
+        </select>
+    </div>
+    <div>
+        <button onclick="actualizar()">ACTUALIZAR</button>
+    </div>
+
+    <script>
+        const selectRegiones = ["RM", "Los Lagos"];
+        const ciudadesRM = ["San Bernardo", "Melipilla"];
+        const ciudadesLosLagos = ["Osorno", "Puerto Montt"];
+
+        var regionSelec= document.getElementById("idRegiones");
+        var option1 = document.createElement("option");
+        var option2 = document.createElement("option");
+        option1.innerText = "RM";
+        option2.innerText = "Los Lagos";
+
+        regionSelec.appendChild(option1);
+        regionSelec[1].value = 1;
+
+        regionSelec.appendChild(option2);
+        regionSelec[2].value = 2;
+        console.log(regionSelec);
+
+
+        function actualizar() {
+            if (regionSelec.value == 1){
+                ciudadesRM.forEach(
+                    function(valor, indice){
+                        console.log(indice + " " + valor);
+                    }
+                )
+            }
+        
+            else if (regionSelec.value == 2){
+                ciudadesLosLagos.forEach(
+                    function(valor, indice){
+                        console.log(indice + " " + valor);
+                    }
+                )
+            };
+        };
+    </script>
+</body>
+</html>

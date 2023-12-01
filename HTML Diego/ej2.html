@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EJERCICIO 2</title>
+    <link rel = "stylesheet" href="estilosBeans.css"/>
+</head>
+<body id="idBody">
+    <p id="idP1" class="classP1">Beans The Ginger Cat</p>
+    <div id="idDivNom">
+        <label>Usuario:</label>
+        <input type="text" id="idNombre"/>
+    </div>
+    <div id="idDivApe">
+        <label>Contrasena:</label>
+        <input type="text" id="idApellido"/>
+    </div>
+    <div id="idDivDirec">
+        <label>Correo:</label>
+        <input type="text" id="idDireccion"/>
+    </div>
+    <div>
+        <button class="btnGuard" type="button" id="botonGuard">Aceptar</button>
+        <button type="button" id="botonGuard2">Borrar</button>
+    </div>
+    <img id="img1" class="img11" src="img/BeansCat.jpeg" alt="Beans The Ginger Cat"/>
+    <img id="img2" src="img/BeansCat.jpeg" alt="Beans The Ginger Cat"/>
+    <img id="img3" src="img/BeansCat.jpeg" alt="Beans The Ginger Cat"/>
+    <img id="img4" src="img/BeansCat.jpeg" alt="Beans The Ginger Cat"/>
+
+
+    <style>
+
+    p {
+
+        min-width: 1000px;
+        text-align: center;
+    }
+
+    img {
+        max-width: 250px;
+    }
+    @media(max-width:500px){
+
+        div {
+            font-size: 10px;
+        }
+
+        label {
+            font-size: 10px;
+        }
+
+    };
+
+    </style>
+    <script> 
+        var Persona = {
+            nombre: "Ingrese su usuario",
+            apellido: "Ingrese su contraseña",
+            direccion: "Ingrese su correo"
+        };
+
+        function Persona2(nom, ape, direc) {
+            this.nom = nom;
+            this.ape = ape;
+            this.dir = dir;
+        };
+
+        var selectNom = document.getElementById("idNombre");
+        var selectApe = document.getElementById("idApellido");
+        var selectDirec = document.getElementById("idDireccion");
+        Persona2.nom = selectNom.value;
+        Persona2.ape = selectApe;
+        Persona2.direct = selectDirec;
+
+        //input placeholder
+        selectNom.placeholder = Persona.nombre;
+        selectNom.style.fontStyle = "italic";
+        selectApe.placeholder = Persona.apellido;
+        selectApe.style.fontStyle = "italic";
+        selectDirec.style.fontStyle = "italic";
+        selectDirec.placeholder = Persona.direccion;
+
+        //estilo input
+        idNombre.style.borderRadius = "16px";
+        idNombre.style.marginLeft = "10px";
+        idNombre.style.paddingRight = "40px";
+        idNombre.style.paddingLeft = "40px";
+        idNombre.style.backgroundColor = "#282828"
+        idNombre.style.boxShadow = "Blue";
+        idApellido.style.borderRadius = "16px";
+        idApellido.style.marginLeft = "10px";
+        idApellido.style.paddingRight = "40px";
+        idApellido.style.paddingLeft = "40px";
+        idApellido.style.backgroundColor = "#282828"
+        idDireccion.style.borderRadius = "16px";
+        idDireccion.style.marginLeft = "10px";
+        idDireccion.style.paddingRight = "40px";
+        idDireccion.style.paddingLeft = "40px";
+        idDireccion.style.backgroundColor = "#282828";
+
+        var errorLength = document.createElement("label");
+        errorLength.innerText = "Error. Excede el máximo de caracteres permitidos";
+        var selectDivNom = document.getElementById("idDivNom");
+        selectDivNom.appendChild(errorLength);
+        errorLength.style.color = "red";
+        errorLength.style.display = "none";
+
+        var newLabel = document.createElement("label");
+        newLabel.innerText = "Campo obligatorio.";
+        var selectDivNom = document.getElementById("idDivNom");
+        selectDivNom.appendChild(newLabel);
+        newLabel.style.color = "red";
+        newLabel.style.display = "none";
+
+        var newLabel2 = document.createElement("label");
+        newLabel2.innerText = "Campo obligatorio.";
+        var selectDivApe= document.getElementById("idDivApe");
+        selectDivApe.appendChild(newLabel2);
+        newLabel2.style.color = "red";
+        newLabel2.style.display = "none";
+
+        var newLabel3 = document.createElement("label");
+        newLabel3.innerText = "Campo obligatorio.";
+        var selectDivDirec = document.getElementById("idDivDirec");
+        selectDivDirec.appendChild(newLabel3);
+        newLabel3.style.color = "red";
+        newLabel3.style.display = "none";
+
+        var okLabel1 = document.createElement("label");
+        okLabel1.innerText = "Correcto.";
+        var selectDivNom = document.getElementById("idDivNom");
+        selectDivNom.appendChild(okLabel1);
+        okLabel1.style.color = "Green";
+        okLabel1.style.display = "none";
+
+        var okLabel2 = document.createElement("label");
+        okLabel2.innerText = "Correcto.";
+        var selectDivApe = document.getElementById("idDivApe");
+        selectDivApe.appendChild(okLabel2);
+        okLabel2.style.color = "green";
+        okLabel2.style.display = "none";
+
+        var okLabel3 = document.createElement("label");
+        okLabel3.innerText = "Correcto.";
+        var selectDivDirec = document.getElementById("idDivDirec");
+        selectDivDirec.appendChild(okLabel3);
+        okLabel3.style.color = "green";
+        okLabel3.style.display = "none";
+
+        //estilo botonGuard
+        botonGuard.style.backgroundColor = "black";
+        botonGuard.style.color = "#ccc";
+        botonGuard.style.margin = "20px 20px 35px 0px";
+        botonGuard.style.padding = "10px 25px 10px 25px";
+        botonGuard.style.borderRadius = "20px";
+        botonGuard.style.boxShadow = "rgb(41, 4, 207) 4px 2px 20px 3px";
+
+        //estilo botonGuard 
+        let idButton  = document.getElementById("botonGuard");
+        let defaultColor = idButton.style.backgroundColor;
+        let defaultPadding = idButton.style.padding;
+        let defaultboxShadow = idButton.style.boxShadow;
+        let colors = ["rgb(6, 111, 248)", "rgb(143, 255, 114)", "rgb(250, 152, 152)", 
+            "rgb(125, 82, 243)", "rgb(238, 9, 28)", "rgb(228, 248, 51)", 
+            "rgb(68, 190, 68)", "rgb(52, 178, 201)", "rgb(158, 245, 197)", 
+            "rgb(156, 201, 51)", "rgb(212, 55, 205)", "rgb(238, 194, 74)", 
+            "rgb(247, 159, 159)"];
+        let count = 0;
+
+        botonGuard2.style.backgroundColor = "black";
+        botonGuard2.style.color = "#ccc";
+        botonGuard2.style.margin = "20px 20px 35px 0px";
+        botonGuard2.style.padding = "10px 25px 10px 25px";
+        botonGuard2.style.borderRadius = "20px";
+        botonGuard2.style.boxShadow = "rgb(41, 4, 207) 4px 2px 20px 3px";
+
+        idButton.onmouseenter = function (e) {
+            cambiarColor = colors [count % colors.length];
+            e.target.style.backgroundColor = cambiarColor;
+            e.target.style.boxShadow = cambiarColor + '4px 2px 20px 8px';
+            console.log(cambiarColor);
+            e.target.style.padding = "10px 25px 10px 25px";
+            e.target.style.transition = "0.75s";
+            console.log(e.target.style.boxShadow);
+            count++;
+        }
+
+        idButton.onmouseleave = function (e) {
+            e.target.style.backgroundColor = defaultColor;
+            e.target.style.boxShadow = defaultboxShadow;
+            e.target.style.padding = defaultPadding;
+        }
+
+        botonGuard2.onmouseenter = function (e) {
+            cambiarColor = colors [count % colors.length];
+            e.target.style.backgroundColor = cambiarColor;
+            e.target.style.boxShadow = cambiarColor + '4px 2px 20px 8px';
+            console.log(cambiarColor);
+            e.target.style.padding = "10px 25px 10px 25px";
+            e.target.style.transition = "0.75s";
+            console.log(e.target.style.boxShadow);
+            count++;
+        }
+
+        botonGuard2.onmouseleave = function (e) {
+            e.target.style.backgroundColor = defaultColor;
+            e.target.style.boxShadow = defaultboxShadow;
+            e.target.style.padding = defaultPadding;
+        }
+
+        img1.onmouseenter = function (e2) {
+            cambiarColor = colors [count % colors.length];
+            e2.target.style.margin = "14px";
+            e2.target.style.boxShadow = cambiarColor + '4px 2px 20px 14px';
+            e2.target.style.color = cambiarColor;
+            e2.target.style.transition = "0.55s";
+            count++;
+        }
+
+        img1.onmouseleave = function (e2) {
+            e2.target.style.boxShadow = defaultboxShadow;
+        }
+
+        img2.onmouseenter = function (e2) {
+            cambiarColor = colors [count % colors.length];
+            e2.target.style.margin = "14px";
+            e2.target.style.boxShadow = cambiarColor + '4px 2px 20px 14px';
+            e2.target.style.color = cambiarColor;
+            e2.target.style.transition = "0.55s";
+            count++;
+        }
+
+        img2.onmouseleave = function (e2) {
+            e2.target.style.boxShadow = defaultboxShadow;
+        }
+
+        img3.onmouseenter = function (e2) {
+            cambiarColor = colors [count % colors.length];
+            e2.target.style.margin = "14px";
+            e2.target.style.boxShadow = cambiarColor + '4px 2px 20px 14px';
+            e2.target.style.color = cambiarColor;
+            e2.target.style.transition = "0.55s";
+            count++;
+        }
+
+        img3.onmouseleave = function (e2) {
+            e2.target.style.boxShadow = defaultboxShadow;
+        }
+
+        img4.onmouseenter = function (e2) {
+            cambiarColor = colors [count % colors.length];
+            e2.target.style.margin = "14px";
+            e2.target.style.boxShadow = cambiarColor + '4px 2px 20px 14px';
+            e2.target.style.color = cambiarColor;
+            e2.target.style.transition = "0.55s";
+            count++;
+        }
+
+        img4.onmouseleave = function (e2) {
+            e2.target.style.boxShadow = defaultboxShadow;
+        };
+
+        botonGuard2.onclick = function () {
+            idNombre.value = "";
+            idApellido.value = "";
+            idDireccion.value = "";
+        };
+
+
+        function autoRefreshP1() {
+                idP1.click();
+        };
+
+        //Funcion para verificar si esta vacio.
+        function guardar(){
+            Persona2.nom = selectNom.value;
+            console.log(Persona2.nom);
+            var nomLength = idNombre.value.length;
+            console.log(nomLength);
+            if (nomLength > 20){
+                errorLength.style.display = "inline";
+                okLabel1.style.display = "none";
+                newLabel.style.display = "none";
+            }
+            else{
+                if (selectNom.value == ""){
+                    newLabel.style.display = "inline";
+                    okLabel1.style.display = "none";
+                    errorLength.style.display = "none";
+                }
+                else {
+                    newLabel.style.display = "none";
+                    okLabel1.style.display = "inline";
+                    errorLength.style.display = "none";
+                };
+
+
+                if (selectApe.value == ""){
+                    newLabel2.style.display = "inline";
+                    okLabel2.style.display = "none";
+                }
+                else {
+                    okLabel2.style.display = "inline";
+                    newLabel2.style.display = "none";
+                };
+
+
+                if (selectDirec.value == ""){
+                    newLabel3.style.display = "inline";
+                    okLabel3.style.display = "none";
+                } 
+                else {
+                    okLabel3.style.display = "inline";
+                    newLabel3.style.display = "none";
+                };
+            };
+    }
+
+        function p1Color() {
+            cambiarColor = colors [count % colors.length];
+            idP1.style.color = "rgb(243, 164, 44)";
+            idP1.style.textShadow = cambiarColor + '10px 10px 10px';
+            idP1.style.transition = "0.6s";
+            count++;
+            setTimeout(autoRefreshP1, 600);
+        };
+
+        botonGuard.onclick = guardar;
+        idP1.onclick = p1Color;
+
+        idNombre.onblur = guardar;
+        idApellido.onblur = guardar;
+        idDireccion.onblur = guardar;
+
+        //estilo h1
+        idP1.style.marginTop = "20px";
+        idP1.style.marginBottom = "30px";
+        idP1.style.color = "Violet";
+        idP1.style.textBorder = "16px";
+        idP1.style.fontFamily = "Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif";
+        idP1.style.fontSize = "100px";
+        idP1.style.textShadow = "rgb(36, 66, 168) 2px 10px 10px";
+        setTimeout(p1Color, 1000);
+
+        var image = document.getElementById('img1');
+        image.style.width = '280px';
+        image.style.height = 'auto';
+
+        var image = document.getElementById('img2');
+        image.style.width = '280px';
+        image.style.height = 'auto';
+
+        var image = document.getElementById('img3');
+        image.style.width = '280px';
+        image.style.height = 'auto';
+
+        var image = document.getElementById('img4');
+        image.style.width = '280px';
+        image.style.height = 'auto';
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btnAct">Actualizar</button>
+    <script>
+        let colores = ["Red", "Green", "Yellow", "Orange", "Brown"];
+        count = 0;
+        btnAct.style.padding = "5px 20px 5px 20px";
+        btnAct.style.borderRadius = "16px";
+
+        btnAct.onclick = actualizar;
+        function actualizar(e) {
+            var indice = count % colores.length;
+            e.target.style.backgroundColor = colores[indice];
+            console.log(colores.length);
+            console.log(count);
+            console.log(indice);
+            console.log(colores[indice]);
+            count++;
+            setTimeout(autoRefresh, 500);
+
+        };
+        function autoRefresh() {
+                btnAct.click();
+        };
+    </script>
+
+</body>
+</html>
